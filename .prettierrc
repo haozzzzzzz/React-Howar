@@ -1,0 +1,29 @@
+{
+    "prettier.tabWidth": 4,
+    "prettier.semi": false,
+    "prettier.singleQuote": true,
+    "singleQuote": true,
+    "semi": false,
+    "prettier.printWidth": 100,
+    "prettier.trailingComma": "es5",
+    "prettier.arrowParents": "always",
+    "prettier.bracketSpacing": false,
+  
+    "vetur.format.defaultFormatter.js": "vscode-typescript",
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "vetur.completion.tagCasing": "initial",
+    "vetur.format.options.tabSize": 4,
+    "vetur.validation.template": false,
+    "vetur.format.defaultFormatter.html": "js-beautify-html",
+    "vetur.format.defaultFormatterOptions": {
+      "js-beautify-html": {
+        "wrap_attributes": "force-aligned"
+      },
+      "prettier": {
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "es5"
+      }
+    }
+  }
+  
