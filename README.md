@@ -1,68 +1,23 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Git推拉使用(git操作)
 
-## Available Scripts
+1.使用git去clone目标远程仓库 git clone '地址'
 
-In the project directory, you can run:
+2.git branch 查看当前所有的分支
 
-### `yarn start`
+3.在本地创建并切换分支  git checkout -b dev  创建并切换到dev分支上
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4.讲分支更新到远程仓库  git push -u origin dev  把本地dev分支推送到远程分支上
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+5.git branch --set-upstream-to=origin/dev  //  使用git pull 在远程dev上开发  拉取  
+`// 这个设置好了 可以直接使用git pull git push 在dev上拉取推送消息`
 
-### `yarn test`
+6.git push(第一次要用-u 以后不需要) origin master 把当前master分支推送到远程库
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+7.git merge dev 在当前分支上合并dev分支
 
-### `yarn build`
+8.`git reflog` 查看历史版本号
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+9.git reset --hard 版本号 实现版本回退 回退完直接push即可
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+30.本地代码与远程分支做关联 `git remote add origin git@'XXX仓库地址'`  
+`git remote rm origin` 跟远程解除关联

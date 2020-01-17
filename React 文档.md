@@ -252,3 +252,48 @@ componentWillUnmount(){
 ```
 
 ### 3.	使用	redux-thunk 
+
+```jsx
+//  使用用途: 主要是用来 == > 处理异步请求操作
+// redux-thunk  redux-saga都是redux的插件
+1. 下载安装使用 yarn add redux-thunk --save
+2. 引入中间件,要在redux中引入applyMiddleware  import { createStore, applyMiddleware} from 'redux'
+3. import thunk from 'redux-thunk'       在'./store/index.js'
+4. 方法1 : const store = createStore(
+                reducer,  // 参数1 引入reducer 作为第一个参数
+                applyMiddleware(thunk) // 
+            ) // 创建数据存储仓库
+   方法2 : import { createStore , applyMiddleware ,compose } from 'redux'   // 1. 引入compose 增强函数
+		  const composeEnhancers =   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}):compose // 链式函数
+          const enhancer = composeEnhancers(applyMiddleware(thunk))
+          const store = createStore( reducer, enhancer) 
+          export default store
+5. // 在action对象里面定义请求方式 之前是action对象  现在有了redux-thunk  action可以是函数
+	import axios from 'axios'     在'./store/actionCreatores.js'
+	export const GetListAction = (data)=>({
+        type:GET_LIST,   // 定义的类型
+    	data			// 修改的数据  用来传递给reducer修改完毕return给store
+    })
+	export const getListtodo=()=>{  // 定义并暴露请求list数据的函数
+        return (dispatch)=>{
+            axios.get('地址').then((res)=>{
+                const data =res.data  // 在这里编辑请求回来的逻辑
+                const action= GetListAction(data)
+                dispatch(action)
+            })
+        }
+    }
+ 6. 在要请求的组件内,引入 import {getListtodo} from './store/actionCreatores'
+	componentDidMount(){
+        const action = getListtodo()
+        store.dispatch(action)   // 即可
+    }
+```
+
+### 4.	使用  React-Redux
+
+```jsx
+
+```
+
